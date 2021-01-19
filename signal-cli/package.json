@@ -1,0 +1,15 @@
+{
+	"name": "signal-web",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": "~4.16.4",
+		"express-session": "~1.15.6",
+		"log4js": "~4.1.0"
+	},
+	"scripts": {
+		"start": "start"
+	},
+	"author": "Pumbaa666 <pumbaa666@gmail.com>",
+	"description": "Signal Messenger webapp",
+	"devDependencies": {}
+}
