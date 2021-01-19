@@ -1,3 +1,7 @@
+# About
+**signal-web** is a local web-server for Signal messenger https://signal.org
+Served as a docker image it runs on signal-cli api https://github.com/AsamK/signal-cli and signal-cli-rest-api https://github.com/bbernhard/signal-cli-rest-api/
+
 # Versions
 ```
 docker-ce 19.03.14
