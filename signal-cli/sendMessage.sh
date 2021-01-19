@@ -1,8 +1,8 @@
 #!/bin/bash
-myPhoneNumber=+41789998877
+myPhoneNumber=$(cat ./conf/SENDER_PHONE_NUMBER)
 
 if [ -z "$1" ]; then
-        echo "Enter recipient"
+        echo "Enter recipient number"
         exit -1
 fi
 writeTo=$1
@@ -14,7 +14,7 @@ fi
 message=$2
 message=$message"
 ---
-Envoyé depuis Debian"
+Sent from Debian"
 
 # Install signal-cli
 # https://github.com/AsamK/signal-cli/wiki/Quickstart
