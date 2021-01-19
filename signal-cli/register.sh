@@ -9,11 +9,9 @@ fi
 
 if [ -z "$1" ]; then
         #Register
-        url="http://127.0.0.1:8080/v1/register/$myPhoneNumber"
-        curl -X POST -H "$header" $url
+	signal-cli -u $myPhoneNumber register
 else
         #Verify
         code=$1
-        url="http://127.0.0.1:8080/v1/register/$myPhoneNumber/verify/$code"
-        curl -X POST -H "$header" $url
+	signal-cli -u $myPhoneNumber verify $code
 fi
