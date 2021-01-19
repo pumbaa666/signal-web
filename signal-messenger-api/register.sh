@@ -1,5 +1,5 @@
 #!/bin/bash
-myPhoneNumber=+41789998877
+myPhoneNumber=$(cat ./conf/SENDER_PHONE_NUMBER)
 header="Content-Type: application/json"
 
 if [ -z "$1" ]; then
