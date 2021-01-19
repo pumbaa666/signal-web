@@ -1,10 +1,10 @@
-const config = require('../config/app');
+const conf = require('../conf/app');
 
 /*
  * Logger
  */
 var log4js = require('log4js');
-log4js.configure('./config/log4js.json');
+log4js.configure('./conf/log4js.json');
 var logger = log4js.getLogger('app');
 
 /*
@@ -66,8 +66,8 @@ async_series([
 		done();
 	},
 	(done) => {
-		logger.info('Listening on port ' + config.app.port);
-		app.listen(config.app.port);
+		logger.info('Listening on port ' + conf.app.port);
+		app.listen(conf.app.port);
 		done();
 	}
 ]);

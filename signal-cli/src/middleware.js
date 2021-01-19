@@ -4,13 +4,13 @@
  */
 
 let jwt = require('jsonwebtoken');
-const config = require('../config/app.js');
+const conf = require('../conf/app.js');
 
 /*
  * Logger
  */
 var log4js = require('log4js');
-log4js.configure('./config/log4js.json');
+log4js.configure('./conf/log4js.json');
 var logger = log4js.getLogger('middleware');
 
 let checkToken = (req, res, next) => {
@@ -27,7 +27,7 @@ let checkToken = (req, res, next) => {
 		token = token.slice(bearer_str.length, token.length);
 
 	// logger.debug('checkToken - token = '+JSON.stringify(token));
-	jwt.verify(token, config.token.secret, (err, decoded) => {
+	jwt.verify(token, conf.token.secret, (err, decoded) => {
 		if (err) {
 			req.headers.authorization = { success: false, message: 'Token is not valid' };
 			next();
