@@ -12,38 +12,18 @@ var logger = log4js.getLogger('app');
  */
 const express = require('express');
 
+/*
+ * Divers
+ */
+const async_series = require('async').series;
+//const middleware = require('./middleware');
 
 var app = express();
 app.use(express.static('scripts')); // Serves static files. Used in ./views/*.ejs files to include ./scripts/*.js
 app.use(express.json()); // Parse json object and put them in the request.body : https://stackoverflow.com/questions/10005939/how-do-i-consume-the-json-post-data-in-an-express-application
 
-function isUserAutenthicated(req, res) {
-	if (res && !req.headers.authorization.success) {
-		res.setHeader('Content-Type', 'application/json');
-		res.status(401).json({ error: { message: 'You should be connected to do this operation', reason: req.headers.authorization.message } });
-	}
-
-	return req.headers.authorization.success;
-}
-
-/*
- * Create user if username and password are set in the body.
- * The payload is JSON.
- * No authentication required.
- */
-app.post('/users', function (req, res, next) {
-	var user = JSON.parse(req.body.user);
-	if (!user || !user.username || !user.password)
-		return next({ error: 'Missing username/password' });
-
-	user.password = hash(user.password);
-
-	UsersModel.create(user, function (error, user) {
-		if (error)
-			return next(error);
-		logger.debug('new user created : ' + user);
-		return res.status(201).json(user);
-	});
+app.get('/resources', /*middleware.checkToken, */function (req, res, next) {
+	return res.status(200).json({"ok":"kk"});
 });
 
 function page404(req, res) {

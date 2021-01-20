@@ -1,4 +1,4 @@
-const config = {
+const conf = {
 	app: {
 		port: 8080
 	}
